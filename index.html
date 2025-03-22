@@ -19,42 +19,6 @@
              -webkit-background-clip: text;
              background-clip: text;
         }
-        .feature-tile {
-            background-color: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-
-        .feature-tile:hover {
-            transform: translateY(-4px) scale(1.01);
-            box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.15), 0 10px 12px -8px rgba(0, 0, 0, 0.08);
-        }
-
-        .feature-tile h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .feature-tile p {
-            color: rgb(209, 213, 219);
-            line-height: 1.75rem;
-        }
-
-        .feature-tile svg {
-            width: 2rem;
-            height: 2rem;
-            color: #60a5fa;
-        }
     </style>
 </head>
 <body class="bg-gray-900 font-inter text-white flex flex-col min-h-screen">
@@ -86,48 +50,92 @@
     <section class="container mx-auto px-4 py-16">
         <h2 class="text-3xl sm:text-4xl font-semibold text-center mb-12 bg-gradient-to-r from-white to-gray-300 text-transparent bg-clip-text">Key Features</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <a href="high-performance.html" class="feature-tile">
-                <h3 class="flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap"><path d="M13 2L3 14h9l-1 7 9-10h-9l1-7z"></path></svg>
-                    High Performance
-                </h3>
+            <div class="bg-white/5 backdrop-blur-md rounded-xl p-6 shadow-lg border border-white/10 hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
+                <div class="flex items-center gap-4 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap w-8 h-8 text-blue-400"><path d="M13 2L3 14h9l-1 7 9-10h-9l1-7z"></path></svg>
+                    <h3 class="text-xl font-semibold text-white">High Performance</h3>
+                </div>
                 <p class="text-gray-300 leading-relaxed">SiriDB is designed for speed, capable of handling massive amounts of time series data with ease.</p>
-            </a>
-            <a href="scalability.html" class="feature-tile">
-                <h3 class="flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users"><path d="M15 18v-6a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v6"></path><path d="M9 18v-3"></path><path d="M2 2v20l10-4 10 4V2"></path></svg>
-                    Scalability
-                </h3>
+            </div>
+            <div class="bg-white/5 backdrop-blur-md rounded-xl p-6 shadow-lg border border-white/10 hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
+                <div class="flex items-center gap-4 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users w-8 h-8 text-blue-400"><path d="M15 18v-6a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v6"></path><path d="M9 18v-3"></path><path d="M2 2v20l10-4 10 4V2"></path></svg>
+                    <h3 class="text-xl font-semibold text-white">Scalability</h3>
+                </div>
                 <p class="text-gray-300 leading-relaxed">Scale horizontally to handle growing data volumes and increasing query loads.</p>
-            </a>
-            <a href="open-source.html" class="feature-tile">
-                <h3 class="flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code-2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-                    Open Source
-                </h3>
+            </div>
+            <div class="bg-white/5 backdrop-blur-md rounded-xl p-6 shadow-lg border border-white/10 hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
+                <div class="flex items-center gap-4 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code-2 w-8 h-8 text-blue-400"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    <h3 class="text-xl font-semibold text-white">Open Source</h3>
+                </div>
                 <p class="text-gray-300 leading-relaxed">Built with a strong open-source foundation, fostering community-driven development.</p>
-            </a>
-            <a href="time-series.html" class="feature-tile">
-                <h3 class="flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database"><ellipse cx="12" cy="12" rx="10" ry="5"></ellipse><path d="M2 12v6c0 1.66 4.48 3 10 3s10-1.34 10-3v-6"></path><path d="M2 12v-6c0-1.66 4.48-3 10-3s10 1.34 10 3v6"></path></svg>
-                    Time Series Optimized
-                </h3>
+            </div>
+            <div class="bg-white/5 backdrop-blur-md rounded-xl p-6 shadow-lg border border-white/10 hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
+                <div class="flex items-center gap-4 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database w-8 h-8 text-blue-400"><ellipse cx="12" cy="12" rx="10" ry="5"></ellipse><path d="M2 12v6c0 1.66 4.48 3 10 3s10-1.34 10-3v-6"></path><path d="M2 12v-6c0-1.66 4.48-3 10-3s10 1.34 10 3v6"></path></svg>
+                    <h3 class="text-xl font-semibold text-white">Time Series Optimized</h3>
+                </div>
                 <p class="text-gray-300 leading-relaxed">Specifically built for time series data, providing efficient storage and retrieval.</p>
-            </a>
-            <a href="clustering.html" class="feature-tile">
-                <h3 class="flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users"><path d="M15 18v-6a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v6"></path><path d="M9 18v-3"></path><path d="M2 2v20l10-4 10 4V2"></path></svg>
-                    Clustering
-                </h3>
+            </div>
+             <div class="bg-white/5 backdrop-blur-md rounded-xl p-6 shadow-lg border border-white/10 hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
+                <div class="flex items-center gap-4 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users w-8 h-8 text-blue-400"><path d="M15 18v-6a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v6"></path><path d="M9 18v-3"></path><path d="M2 2v20l10-4 10 4V2"></path></svg>
+                    <h3 class="text-xl font-semibold text-white">Clustering</h3>
+                </div>
                 <p class="text-gray-300 leading-relaxed">SiriDB supports clustering, allowing you to distribute data and processing across multiple nodes.</p>
-            </a>
-            <a href="easy-integration.html" class="feature-tile">
-                <h3 class="flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square"><path d="M4 21.46a2 2 0 0 1-2-2v-14a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4.84l-2.82 2.82z"></path><path d="M9 12h6"></path><path d="M8 16h8"></path><path d="M9 8h6"></path></svg>
-                    Easy Integration
-                </h3>
+            </div>
+            <div class="bg-white/5 backdrop-blur-md rounded-xl p-6 shadow-lg border border-white/10 hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
+                <div class="flex items-center gap-4 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square w-8 h-8 text-blue-400"><path d="M4 21.46a2 2 0 0 1-2-2v-14a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4.84l-2.82 2.82z"></path><path d="M9 12h6"></path><path d="M8 16h8"></path><path d="M9 8h6"></path></svg>
+                    <h3 class="text-xl font-semibold text-white">Easy Integration</h3>
+                </div>
                 <p class="text-gray-300 leading-relaxed">Integrates seamlessly with various data collection and visualization tools.</p>
-            </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-800 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl sm:text-4xl font-semibold text-center mb-12 text-white">Support Offerings</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white/5 backdrop-blur-md rounded-xl p-6 shadow-lg border border-white/10 hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Basic Support</h3>
+                    <p class="text-gray-300 mb-4">150 Euro per month</p>
+                    <ul class="list-disc list-inside text-gray-300 space-y-2">
+                        <li>8/5 support coverage CET</li>
+                        <li>Best effort response time via Slack</li>
+                        <li>Remote monitoring using InfraSonar</li>
+                        <li>1 remote health check per year</li>
+                        <li>Limited to 1 pool</li>
+                    </ul>
+                </div>
+                <div class="bg-white/5 backdrop-blur-md rounded-xl p-6 shadow-lg border border-white/10 hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Standard Support</h3>
+                    <p class="text-gray-300 mb-4">400 Euro per month</p>
+                    <ul class="list-disc list-inside text-gray-300 space-y-2">
+                        <li>8/5 support coverage CET</li>
+                        <li>8 hours maximum response time via Slack</li>
+                        <li>Remote monitoring using InfraSonar</li>
+                        <li>Direct communication with SiriDB engineers via Slack</li>
+                        <li>2 remote health checks per year</li>
+                        <li>Limited to 6 pools</li>
+                    </ul>
+                </div>
+                <div class="bg-white/5 backdrop-blur-md rounded-xl p-6 shadow-lg border border-white/10 hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Premium Support</h3>
+                    <p class="text-gray-300 mb-4">800 Euro per month</p>
+                    <ul class="list-disc list-inside text-gray-300 space-y-2">
+                        <li>10/5 support coverage CET (24x7 on request)</li>
+                        <li>4 hours maximum response time</li>
+                        <li>Direct communication with SiriDB engineers via Slack and/or phone</li>
+                        <li>Remote monitoring using InfraSonar</li>
+                        <li>4 remote health checks per year</li>
+                        <li>Limited to 10 pools</li>
+                        <li>Contribute to our roadmap sessions</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -144,110 +152,5 @@
             </div>
         </div>
     </footer>
-    <script>
-        const featureLinks = document.querySelectorAll('.feature-tile');
-
-        function createPage(title, content) {
-            const newPage = document.createElement('html');
-            newPage.innerHTML = `
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>${title}</title>
-                    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-                    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-                    <style>
-                        .bg-gradient-to-br {
-                            background-image: linear-gradient(to bottom right, #1f2937, #5b21b6, #000000);
-                        }
-                        .text-transparent {
-                            color: transparent;
-                            -webkit-background-clip: text;
-                            background-clip: text;
-                        }
-                        .bg-clip-text {
-                            -webkit-background-clip: text;
-                            background-clip: text;
-                        }
-                    </style>
-                </head>
-                <body class="bg-gray-900 font-inter text-white flex flex-col min-h-screen">
-                    <div class="container mx-auto px-4 py-16">
-                        <h1 class="text-4xl font-bold mb-8 text-white">${title}</h1>
-                        <p class="text-lg text-gray-300 leading-relaxed">${content}</p>
-                        <a href="index.html" class="mt-8 inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-2 rounded-full transition-colors duration-300">
-                            Back to Home
-                        </a>
-                    </div>
-                </body>
-                </html>
-            `;
-            return newPage.outerHTML;
-        }
-
-        const highPerformancePageContent = createPage(
-            "High Performance",
-            "SiriDB is engineered for high performance, capable of handling massive data ingestion and complex queries with lightning speed.  Learn more about our architecture."
-        );
-
-        const scalabilityPageContent = createPage(
-            "Scalability",
-            "Scale your time-series data storage and processing effortlessly with SiriDB's distributed architecture.  Find out how to scale horizontally."
-        );
-
-        const openSourcePageContent = createPage(
-            "Open Source",
-            "SiriDB is an open-source project, fostering a vibrant community and transparent development.  Explore the project on GitHub and contribute."
-        );
-
-        const timeSeriesPageContent = createPage(
-            "Time Series Optimized",
-            "SiriDB is specifically designed for time-series data, providing efficient storage, indexing, and querying.  Discover the advantages of a purpose-built database."
-        );
-
-        const clusteringPageContent = createPage(
-            "Clustering",
-            "SiriDB supports clustering, enabling you to distribute your data and workload across multiple nodes for high availability and performance."
-        );
-
-        const easyIntegrationPageContent = createPage(
-            "Easy Integration",
-            "SiriDB integrates seamlessly with a variety of data collection, visualization, and analysis tools.  See how to connect with your existing infrastructure."
-        );
-
-        featureLinks.forEach(link => {
-            link.addEventListener('click', (event) => {
-                event.preventDefault();
-                let pageContent = '';
-                switch (link.getAttribute('href')) {
-                    case 'high-performance.html':
-                        pageContent = highPerformancePageContent;
-                        break;
-                    case 'scalability.html':
-                        pageContent = scalabilityPageContent;
-                        break;
-                    case 'open-source.html':
-                        pageContent = openSourcePageContent;
-                        break;
-                    case 'time-series.html':
-                        pageContent = timeSeriesPageContent;
-                        break;
-                    case 'clustering.html':
-                        pageContent = clusteringPageContent;
-                        break;
-                    case 'easy-integration.html':
-                        pageContent = easyIntegrationPageContent;
-                        break;
-                    default:
-                        pageContent = '<h1>Page Not Found</h1><p>Sorry, the page you are looking for does not exist.</p>';
-                }
-                document.open();
-                document.write(pageContent);
-                document.close();
-            });
-        });
-    </script>
 </body>
 </html>
