@@ -19,6 +19,61 @@
              -webkit-background-clip: text;
              background-clip: text;
         }
+
+        .support-tile {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 0.75rem; /* Tailwind rounded-lg */
+            padding: 1.5rem; /* Tailwind p-6 */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Tailwind shadow-md */
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Add a border */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            display: flex; /* Use flexbox for vertical alignment */
+            flex-direction: column;
+            align-items: flex-start; /* Align items to the start (top) */
+        }
+
+        .support-tile:hover {
+            transform: translateY(-0.5rem) scale(1.02); /* Tailwind -translate-y-2 and scale-105 approximation */
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05); /* Tailwind shadow-xl */
+        }
+
+        .support-tile-title {
+            font-size: 1.5rem; /* Tailwind text-2xl */
+            font-weight: 600; /* Tailwind font-semibold */
+            color: #fff; /* Tailwind text-white */
+            margin-bottom: 1rem; /* Tailwind mb-4 */
+        }
+
+        .support-tile-price {
+            font-size: 1.25rem; /* Tailwind text-xl */
+            color: #gray-300; /* Tailwind text-gray-300 */
+            margin-bottom: 1rem; /* Tailwind mb-4 */
+        }
+
+        .support-tile-details {
+            display: none;
+            color: #gray-300;
+            margin-top: 1rem; /* Tailwind mt-4 */
+        }
+
+        .support-tile.active .support-tile-details {
+            display: block;
+        }
+
+        .support-link {
+            color: #fff; /* Tailwind text-white */
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .support-tile-icon {
+            width: 3rem; /* Tailwind w-12 is 3rem */
+            height: 3rem; /* Tailwind h-12 is 3rem */
+            margin-bottom: 1rem; /* Tailwind mb-4 */
+            color: #blue-400;
+        }
+
     </style>
 </head>
 <body class="bg-gray-900 font-inter text-white flex flex-col min-h-screen">
@@ -95,45 +150,87 @@
         </div>
     </section>
 
+    <section class="bg-gray-900 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-semibold mb-8 text-white">Join the SiriDB Community</h2>
+            <p class="text-lg text-gray-300 mb-6">
+                Connect with other SiriDB users and developers, ask questions, suggest features, and contribute to the project.
+            </p>
+            <a
+                href="https://github.com/orgs/SiriDB/discussions"
+                class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-8 py-3 rounded-full transition-colors duration-300 inline-flex items-center gap-2"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github-discussion-icon w-6 h-6"><path d="M9.17 15.13A4 4 0 1 0 12.87 18a4 4 0 0 0-3.7-2.87Z"></path><path d="M15.74 12.22A4 4 0 1 0 19 15.1a4 4 0 0 0-3.26-2.88Z"></path><path d="M6.34 9.34A4 4 0 1 0 8.66 12a4 4 0 0 0-2.32-2.66Z"></path><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Z"></path></svg>
+                Join the discussion on GitHub
+            </a>
+        </div>
+    </section>
+
+    <section class="bg-gray-900 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-semibold mb-8 text-white">Deploy on Kubernetes</h2>
+            <p class="text-lg text-gray-300 mb-6">
+                SiriDB can be easily deployed on Kubernetes, enabling scalable and resilient time-series data management in containerized environments.
+            </p>
+            <a
+                href="#"  # Replace with a link to your Kubernetes documentation
+                class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-8 py-3 rounded-full transition-colors duration-300 inline-flex items-center gap-2"
+            >
+                Learn more about Kubernetes deployment
+            </a>
+        </div>
+    </section>
+
     <section class="bg-gray-800 py-16">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl sm:text-4xl font-semibold text-center mb-12 text-white">Support Offerings</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white/5 backdrop-blur-md rounded-xl p-6 shadow-lg border border-white/10 hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
-                    <h3 class="text-2xl font-semibold text-white mb-4">Basic Support</h3>
-                    <p class="text-gray-300 mb-4">150 Euro per month</p>
-                    <ul class="list-disc list-inside text-gray-300 space-y-2">
-                        <li>8/5 support coverage CET</li>
-                        <li>Best effort response time via Slack</li>
-                        <li>Remote monitoring using InfraSonar</li>
-                        <li>1 remote health check per year</li>
-                        <li>Limited to 1 pool</li>
-                    </ul>
+                <div class="support-tile" onclick="toggleSupportDetails(this)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-life-buoy support-tile-icon"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="4.93" x2="9.15" y1="4.93" y2="9.15"></line><line x1="14.85" x2="19.07" y1="4.93" y2="9.15"></line><line x1="19.07" x2="14.85" y1="14.85" y2="19.07"></line><line x1="9.15" x2="4.93" y1="14.85" y2="19.07"></line></svg>
+                    <h3 class="support-tile-title">Basic Support</h3>
+                    <p class="support-tile-price">150 Euro per month</p>
+                    <div class="support-tile-details">
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>8/5 support coverage CET</li>
+                            <li>Best effort response time via Slack</li>
+                            <li>Remote monitoring using InfraSonar</li>
+                            <li>1 remote health check per year</li>
+                            <li>Limited to 1 pool</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="bg-white/5 backdrop-blur-md rounded-xl p-6 shadow-lg border border-white/10 hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
-                    <h3 class="text-2xl font-semibold text-white mb-4">Standard Support</h3>
-                    <p class="text-gray-300 mb-4">400 Euro per month</p>
-                    <ul class="list-disc list-inside text-gray-300 space-y-2">
-                        <li>8/5 support coverage CET</li>
-                        <li>8 hours maximum response time via Slack</li>
-                        <li>Remote monitoring using InfraSonar</li>
-                        <li>Direct communication with SiriDB engineers via Slack</li>
-                        <li>2 remote health checks per year</li>
-                        <li>Limited to 6 pools</li>
-                    </ul>
+                <div class="support-tile" onclick="toggleSupportDetails(this)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check support-tile-icon"><path d="M12 22s8-4 8-10V5l-8-2-8 2v7c0 6 8 10 8 10z"></path><polyline points="9 12 12 15 15 12"></polyline></svg>
+                    <h3 class="support-tile-title">Standard Support</h3>
+                    <p class="support-tile-price">400 Euro per month</p>
+                    <div class="support-tile-details">
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>8/5 support coverage CET</li>
+                            <li>8 hours maximum response time via Slack</li>
+                            <li>Remote monitoring using InfraSonar</li>
+                            <li>Direct communication with SiriDB engineers via Slack</li>
+                            <li>2 remote health checks per year</li>
+                            <li>Limited to 6 pools</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="bg-white/5 backdrop-blur-md rounded-xl p-6 shadow-lg border border-white/10 hover:shadow-xl hover:scale-[1.01] transition-all duration-300">
-                    <h3 class="text-2xl font-semibold text-white mb-4">Premium Support</h3>
-                    <p class="text-gray-300 mb-4">800 Euro per month</p>
-                    <ul class="list-disc list-inside text-gray-300 space-y-2">
-                        <li>10/5 support coverage CET (24x7 on request)</li>
-                        <li>4 hours maximum response time</li>
-                        <li>Direct communication with SiriDB engineers via Slack and/or phone</li>
-                        <li>Remote monitoring using InfraSonar</li>
-                        <li>4 remote health checks per year</li>
-                        <li>Limited to 10 pools</li>
-                        <li>Contribute to our roadmap sessions</li>
-                    </ul>
+                <div class="support-tile" onclick="toggleSupportDetails(this)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-award support-tile-icon"><path d="M20 6H16V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z"></path><path d="M12 8v8"></path><path d="M8 12h8"></path></svg>
+                    <h3 class="support-tile-title">Premium Support</h3>
+                    <p class="support-tile-price">800 Euro per month</p>
+                    <div class="support-tile-details">
+                        <ul class="list-disc list-inside text-gray-300 space-y-2">
+                            <li>10/5 support coverage CET (24x7 on request)</li>
+                            <li>4 hours maximum response time</li>
+                            <li>Direct communication with SiriDB engineers via Slack and/or phone</li>
+                            <li>Remote monitoring using InfraSonar</li>
+                            <li>4 remote health checks per year</li>
+                            <li>Limited to 10 pools</li>
+                            <li>Contribute to our roadmap sessions</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -144,13 +241,4 @@
             &copy; 2024 SiriDB. All rights reserved.
             <div class="mt-4 flex justify-center gap-4">
                 <a href="#" class="hover:text-blue-400 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github w-6 h-6"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.3-.87 2.23a4 4 0 0 1-1.13 1.27V22"></path><path d="M12 7c2.21 0 4 1.75 4 3.92v.08c0 2.17-1.79 3.92-4 3.92a4 4 0 0 1-4-3.92v-.08c0-2.17 1.79-3.92 4-3.92z"></path></svg>
-                </a>
-                <a href="#" class="hover:text-blue-400 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open w-6 h-6"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path><path d="M12 13h6"></path><path d="M12 17h6"></path></svg>
-                </a>
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github w-6 h-6"><path d="M15 22v-4a4.8 
